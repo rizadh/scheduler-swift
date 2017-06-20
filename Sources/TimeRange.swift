@@ -13,6 +13,10 @@ struct TimeRange {
     let end: Time
 
     init(from start: Time, to end: Time) {
+        guard start < end else {
+            fatalError("Time range start must be before time range end")
+        }
+        
         self.start = start
         self.end = end
     }
@@ -26,6 +30,6 @@ extension TimeRange: Equatable {
 
 extension TimeRange: Overlappable {
     static func overlap(lhs: TimeRange, rhs: TimeRange) -> Bool {
-        return (lhs.start < rhs.start) != (lhs.end < rhs.end)
+        return (lhs.start < rhs.end) == (rhs.start < lhs.end)
     }
 }

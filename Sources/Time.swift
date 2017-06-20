@@ -17,6 +17,20 @@ struct Time {
         self.minute = minute
     }
 
+    init(fromMinutes: Int) {
+        var minutes = fromMinutes
+        
+        var hours = 0
+
+        while minutes >= 60 {
+            hours += 1
+            minutes -= 60
+        }
+        
+        self.hour = hours
+        self.minute = minutes
+    }
+
     func toMinutes() -> Int {
         return 60 * self.hour + self.minute
     }

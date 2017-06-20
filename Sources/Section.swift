@@ -34,7 +34,7 @@ extension Section: Overlappable {
                 }
             }
         }
-        
+
         return false
     }
 }

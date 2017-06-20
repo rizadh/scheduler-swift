@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Day {
+enum Day: Int {
     case Sunday
     case Monday
     case Tuesday
@@ -16,6 +16,18 @@ enum Day {
     case Thursday
     case Friday
     case Saturday
+    
+    func getText() -> String {
+        switch (self) {
+            case .Sunday: return "Sunday"
+            case .Monday: return "Monday"
+            case .Tuesday: return "Tuesday"
+            case .Wednesday: return "Wednesday"
+            case .Thursday: return "Thursday"
+            case .Friday: return "Friday"
+            case .Saturday: return "Saturday"
+        }
+    }
 }
 
 struct Session {
